@@ -3,99 +3,254 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Trang Web Bán Hàng</title>
-        <meta name="description" content="">
+        <title>GalaxyVN Shop - Trang Chủ</title>
+        <meta name="description" content="Cửa hàng trực tuyến - Mua sắm dễ dàng, giao hàng nhanh chóng">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link rel="stylesheet" href="src/index.css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     </head>
     <body>
-        <header class="bg-white py-3 mb-3">
-            <div class="container">
-                <h1 class="h3 mb-0">Trang Web Bán Hàng</h1>
+
+        <!-- ========== HEADER ========== -->
+        <header class="site-header bg-white border-bottom py-2">
+            <div class="container d-flex justify-content-between align-items-center">
+                <a href="index.html" class="text-decoration-none">
+                    <span class="h5 mb-0 fw-bold text-dark">
+                        <i class="bi bi-shop me-2 text-primary"></i>GalaxyVN Shop
+                    </span>
+                </a>
+                <div class="d-flex align-items-center gap-3">
+                    <a href="#" class="text-dark fs-5" title="Tìm kiếm"><i class="bi bi-search"></i></a>
+                    <a href="#" class="text-dark fs-5 position-relative" title="Giỏ hàng">
+                        <i class="bi bi-cart3"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size:0.6rem">0</span>
+                    </a>
+                    <a href="#" class="text-dark fs-5" title="Tài khoản"><i class="bi bi-person-circle"></i></a>
+                </div>
             </div>
         </header>
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <!-- ========== NAVBAR ========== -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="#">Cửa Hàng</a>
+                <a class="navbar-brand d-lg-none" href="#">Menu</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navMenu">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" href="index.html">Trang Chủ</a></li>
-                        <li class="nav-item"><a class="nav-link" href="items.html">Sản Phẩm</a></li>
-                        <li class="nav-item"><a class="nav-link disabled" href="#">Liên Hệ</a></li>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html"><i class="bi bi-house me-1"></i>Trang Chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="items.html"><i class="bi bi-grid me-1"></i>Sản Phẩm</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                <i class="bi bi-tags me-1"></i>Danh Mục
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Danh mục 1</a></li>
+                                <li><a class="dropdown-item" href="#">Danh mục 2</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="items.html">Xem tất cả</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#"><i class="bi bi-envelope me-1"></i>Liên Hệ</a>
+                        </li>
                     </ul>
+                    <form class="d-flex gap-2" role="search">
+                        <input class="form-control form-control-sm" type="search" placeholder="Tìm sản phẩm..." aria-label="Search">
+                        <button class="btn btn-outline-light btn-sm" type="submit"><i class="bi bi-search"></i></button>
+                    </form>
                 </div>
             </div>
         </nav>
 
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-3"></div>
-                <div class="col-6"></div>
-                <div class="col-3"></div>
-            </div>
-        </div>
-
-        <footer class="bg-secondary py-3 mb-3 text-white border-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-6 col-md-2 mb-3"> 
-                        <h5>Section</h5> 
-                        <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li> 
-                        </ul> 
-                    </div> 
-                    <div class="col-6 col-md-2 mb-3"> 
-                        <h5>Section</h5> 
-                        <ul class="nav flex-column"> 
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li> 
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li> 
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li> 
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li> 
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li> 
-                        </ul> 
-                    </div> 
-                    <div class="col-6 col-md-2 mb-3"> 
-                        <h5>Section</h5> 
-                        <ul class="nav flex-column"> 
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li> 
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li> 
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li> 
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li> 
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li> 
-                        </ul> 
-                    </div> 
-                    <div class="col-md-5 offset-md-1 mb-3"> 
-                        <form> 
-                            <h5>Subscribe to our newsletter</h5> 
-                            <p>Monthly digest of what's new and exciting from us.</p> 
-                            <div class="d-flex flex-column flex-sm-row w-100 gap-2"> 
-                                <label for="newsletter1" class="visually-hidden">Email address</label> 
-                                <input id="newsletter1" type="email" class="form-control" placeholder="Email address"> 
-                                <button class="btn btn-primary" type="button">Subscribe</button> 
-                            </div> 
-                        </form> 
-                    </div> 
-                </div> 
-                <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top"> 
-                    <p>© 2026 GalaxyVN, Inc. All rights reserved.</p> 
-                    <ul class="list-unstyled d-flex"> 
-                        <li class="ms-3"><a class="link-body-emphasis" href="#" aria-label="Instagram"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li> 
-                        <li class="ms-3"><a class="link-body-emphasis" href="#" aria-label="Facebook"><svg class="bi" width="24" height="24" aria-hidden="true"><use xlink:href="#facebook"></use></svg></a></li> 
-                    </ul> 
+        <!-- ========== HERO BANNER ========== -->
+        <section class="hero-section">
+            <div class="container py-5">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-white">
+                        <p class="text-warning fw-semibold mb-2">
+                            <i class="bi bi-lightning-fill me-1"></i>Ưu đãi đặc biệt
+                        </p>
+                        <h2 class="display-5 fw-bold mb-3">Mua sắm thông minh<br>Giá cả hợp lý</h2>
+                        <p class="lead mb-4 opacity-75">Khám phá hàng ngàn sản phẩm chất lượng cao với giá tốt nhất. Giao hàng nhanh, đổi trả dễ dàng.</p>
+                        <div class="d-flex gap-3 flex-wrap">
+                            <a href="items.html" class="btn btn-warning btn-lg fw-semibold px-4">
+                                <i class="bi bi-cart-plus me-2"></i>Mua Ngay
+                            </a>
+                            <a href="#featured" class="btn btn-outline-light btn-lg px-4">
+                                Xem Thêm <i class="bi bi-arrow-down ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mt-5 mt-md-0">
+                        <div class="row row-cols-2 g-3 text-white text-center">
+                            <div class="col">
+                                <div class="hero-feature p-3 rounded-3">
+                                    <i class="bi bi-truck fs-2 text-warning d-block mb-2"></i>
+                                    <p class="small mb-0 fw-semibold">Miễn phí vận chuyển</p>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="hero-feature p-3 rounded-3">
+                                    <i class="bi bi-arrow-repeat fs-2 text-warning d-block mb-2"></i>
+                                    <p class="small mb-0 fw-semibold">Đổi trả 30 ngày</p>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="hero-feature p-3 rounded-3">
+                                    <i class="bi bi-shield-check fs-2 text-warning d-block mb-2"></i>
+                                    <p class="small mb-0 fw-semibold">Bảo hành chính hãng</p>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="hero-feature p-3 rounded-3">
+                                    <i class="bi bi-headset fs-2 text-warning d-block mb-2"></i>
+                                    <p class="small mb-0 fw-semibold">Hỗ trợ 24/7</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div> 
-        </footer> 
-    </div>
+            </div>
+        </section>
+
+        <!-- ========== SẢN PHẨM NỔI BẬT ========== -->
+        <section id="featured" class="py-5">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="h4 fw-bold mb-0">
+                        <i class="bi bi-star-fill text-warning me-2"></i>Sản Phẩm Nổi Bật
+                    </h2>
+                    <a href="items.html" class="btn btn-outline-primary btn-sm">
+                        Xem tất cả <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+                </div>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+                    <div class="col">
+                        <div class="card product-card h-100">
+                            <a href="product.html?id=1" class="text-decoration-none text-dark">
+                                <img src="assets/images/ussr_t_90m_2020.png" class="card-img-top product-img" alt="Sản Phẩm 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Sản Phẩm 1</h5>
+                                    <p class="card-text text-muted small">Mô tả ngắn về sản phẩm 1.</p>
+                                </div>
+                                <div class="card-footer d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-primary fs-5">$100</span>
+                                    <button class="btn btn-sm btn-primary">
+                                        <i class="bi bi-cart-plus me-1"></i>Mua Ngay
+                                    </button>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card product-card h-100">
+                            <a href="product.html?id=2" class="text-decoration-none text-dark">
+                                <img src="assets/images/ussr_t_80bvm.png" class="card-img-top product-img" alt="Sản Phẩm 2">
+                                <div class="card-body">
+                                    <h5 class="card-title">Sản Phẩm 2</h5>
+                                    <p class="card-text text-muted small">Mô tả ngắn về sản phẩm 2.</p>
+                                </div>
+                                <div class="card-footer d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-primary fs-5">$150</span>
+                                    <button class="btn btn-sm btn-primary">
+                                        <i class="bi bi-cart-plus me-1"></i>Mua Ngay
+                                    </button>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card product-card h-100">
+                            <a href="product.html?id=3" class="text-decoration-none text-dark">
+                                <img src="assets/images/ussr_t_72b3_arena_m.png" class="card-img-top product-img" alt="Sản Phẩm 3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Sản Phẩm 3</h5>
+                                    <p class="card-text text-muted small">Mô tả ngắn về sản phẩm 3.</p>
+                                </div>
+                                <div class="card-footer d-flex justify-content-between align-items-center">
+                                    <span class="fw-bold text-primary fs-5">$120</span>
+                                    <button class="btn btn-sm btn-primary">
+                                        <i class="bi bi-cart-plus me-1"></i>Mua Ngay
+                                    </button>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== BĂNG RÔLE KHUYẾN MÃI ========== -->
+        <section class="promo-banner py-5 mb-2">
+            <div class="container text-center">
+                <h3 class="fw-bold mb-2 text-white">
+                    <i class="bi bi-gift-fill text-warning me-2"></i>Ưu đãi cuối tuần
+                </h3>
+                <p class="mb-4 text-white opacity-75 lead">Giảm đến 30% cho tất cả sản phẩm từ nay đến Chủ Nhật!</p>
+                <a href="items.html" class="btn btn-warning btn-lg px-5 fw-semibold">Nhận Ưu Đãi Ngay</a>
+            </div>
+        </section>
+
+        <!-- ========== FOOTER ========== -->
+        <footer class="bg-dark text-white pt-5 pb-3">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-12 col-md-4 col-lg-3">
+                        <h5 class="fw-bold mb-3"><i class="bi bi-shop me-2 text-primary"></i>GalaxyVN Shop</h5>
+                        <p class="text-secondary small">Cửa hàng trực tuyến uy tín, chuyên cung cấp các sản phẩm chất lượng với giá tốt nhất thị trường.</p>
+                        <div class="d-flex gap-2 mt-3">
+                            <a href="#" class="btn btn-outline-secondary btn-sm" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="btn btn-outline-secondary btn-sm" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="btn btn-outline-secondary btn-sm" aria-label="Twitter/X"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" class="btn btn-outline-secondary btn-sm" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-2">
+                        <h6 class="fw-semibold mb-3 text-uppercase text-secondary footer-heading">Cửa Hàng</h6>
+                        <ul class="nav flex-column">
+                            <li class="nav-item mb-1"><a href="index.html" class="nav-link p-0 text-secondary footer-link">Trang Chủ</a></li>
+                            <li class="nav-item mb-1"><a href="items.html" class="nav-link p-0 text-secondary footer-link">Sản Phẩm</a></li>
+                            <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-secondary footer-link">Ưu Đãi</a></li>
+                            <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-secondary footer-link">Mới Nhất</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md-2">
+                        <h6 class="fw-semibold mb-3 text-uppercase text-secondary footer-heading">Hỗ Trợ</h6>
+                        <ul class="nav flex-column">
+                            <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-secondary footer-link">Liên Hệ</a></li>
+                            <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-secondary footer-link">FAQ</a></li>
+                            <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-secondary footer-link">Đổi &amp; Trả</a></li>
+                            <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-secondary footer-link">Vận Chuyển</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-5">
+                        <h6 class="fw-semibold mb-3 text-uppercase text-secondary footer-heading">Đăng Ký Nhận Tin</h6>
+                        <p class="text-secondary small mb-2">Nhận thông tin ưu đãi và sản phẩm mới nhất mỗi tuần.</p>
+                        <form class="d-flex gap-2">
+                            <label for="newsletterEmail" class="visually-hidden">Email</label>
+                            <input id="newsletterEmail" type="email" class="form-control form-control-sm" placeholder="Email của bạn...">
+                            <button class="btn btn-primary btn-sm text-nowrap" type="button">Đăng Ký</button>
+                        </form>
+                    </div>
+                </div>
+                <hr class="border-secondary mt-4">
+                <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+                    <p class="text-secondary small mb-0">© 2026 GalaxyVN, Inc. All rights reserved.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-secondary small text-decoration-none">Chính sách bảo mật</a>
+                        <a href="#" class="text-secondary small text-decoration-none">Điều khoản</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
     </body>
 </html>

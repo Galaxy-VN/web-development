@@ -1,194 +1,330 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Trang Web Bán Hàng</title>
-        <meta name="description" content="">
+        <title>GalaxyVN Shop - Sáº£n Pháº©m</title>
+        <meta name="description" content="Danh sÃ¡ch sáº£n pháº©m">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link rel="stylesheet" href="src/index.css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     </head>
     <body>
-        <header class="bg-white py-3 mb-3">
-            <div class="container">
-                <h1 class="h3 mb-0">Trang Web Bán Hàng</h1>
+
+        <!-- ========== HEADER ========== -->
+        <header class="site-header bg-white border-bottom py-2">
+            <div class="container d-flex justify-content-between align-items-center">
+                <a href="index.html" class="text-decoration-none">
+                    <span class="h5 mb-0 fw-bold text-dark">
+                        <i class="bi bi-shop me-2 text-primary"></i>GalaxyVN Shop
+                    </span>
+                </a>
+                <div class="d-flex align-items-center gap-3">
+                    <a href="#" class="text-dark fs-5" title="TÃ¬m kiáº¿m"><i class="bi bi-search"></i></a>
+                    <a href="#" class="text-dark fs-5 position-relative" title="Giá» hÃ ng">
+                        <i class="bi bi-cart3"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size:0.6rem">0</span>
+                    </a>
+                    <a href="#" class="text-dark fs-5" title="TÃ i khoáº£n"><i class="bi bi-person-circle"></i></a>
+                </div>
             </div>
         </header>
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <!-- ========== NAVBAR ========== -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="#">Cửa Hàng</a>
+                <a class="navbar-brand d-lg-none" href="#">Menu</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navMenu">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Trang Chủ</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="items.html">Sản Phẩm</a></li>
-                        <li class="nav-item"><a class="nav-link disabled" href="#">Liên Hệ</a></li>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html"><i class="bi bi-house me-1"></i>Trang Chá»§</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="items.html"><i class="bi bi-grid me-1"></i>Sáº£n Pháº©m</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                <i class="bi bi-tags me-1"></i>Danh Má»¥c
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Danh má»¥c 1</a></li>
+                                <li><a class="dropdown-item" href="#">Danh má»¥c 2</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="items.html">Xem táº¥t cáº£</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#"><i class="bi bi-envelope me-1"></i>LiÃªn Há»‡</a>
+                        </li>
                     </ul>
+                    <form class="d-flex gap-2" role="search">
+                        <input class="form-control form-control-sm" type="search" placeholder="TÃ¬m sáº£n pháº©m..." aria-label="Search">
+                        <button class="btn btn-outline-light btn-sm" type="submit"><i class="bi bi-search"></i></button>
+                    </form>
                 </div>
             </div>
         </nav>
 
-        <main class="container-xl mb-4">
-            <div class="row">
-                <div class="col-lg-10">
-                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                        <div class="col">
-                            <div class="card h-100">
-                                <a href="product.html?id=1" class="text-decoration-none text-dark">
-                                    <img src="assets/images/ussr_t_90m_2020.png" class="card-img-top" alt="Sản Phẩm 1">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Sản Phẩm 1</h5>
-                                        <p class="card-text">Mô tả sản phẩm 1.</p>
-                                    </div>
-                                    <div class="card-footer d-flex justify-content-between align-items-center">
-                                        <small class="text-muted">$100</small>
-                                        <button class="btn btn-sm btn-primary">Mua Ngay</button>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+        <!-- ========== BREADCRUMB ========== -->
+        <div class="bg-light border-bottom py-2">
+            <div class="container">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0 small">
+                        <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Trang Chá»§</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Sáº£n Pháº©m</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
 
-                        <div class="col">
-                            <div class="card h-100">
-                                <a href="product.html?id=2" class="text-decoration-none text-dark">
-                                    <img src="assets/images/ussr_t_80bvm.png" class="card-img-top" alt="Sản Phẩm 2">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Sản Phẩm 2</h5>
-                                        <p class="card-text">Mô tả sản phẩm 2.</p>
-                                    </div>
-                                    <div class="card-footer d-flex justify-content-between align-items-center">
-                                        <small class="text-muted">$150</small>
-                                        <button class="btn btn-sm btn-primary">Mua Ngay</button>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+        <!-- ========== Ná»˜I DUNG CHÃNH ========== -->
+        <main class="container py-4">
+            <!-- Thanh tÃ¬m kiáº¿m & sáº¯p xáº¿p -->
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
+                <h4 class="fw-bold mb-0">Táº¥t Cáº£ Sáº£n Pháº©m <span class="badge bg-secondary fs-6">5</span></h4>
+                <div class="d-flex gap-2 flex-wrap">
+                    <select class="form-select form-select-sm" style="width:auto" aria-label="Sáº¯p xáº¿p">
+                        <option selected>Sáº¯p xáº¿p: Máº·c Ä‘á»‹nh</option>
+                        <option>GiÃ¡: Tháº¥p â†’ Cao</option>
+                        <option>GiÃ¡: Cao â†’ Tháº¥p</option>
+                        <option>Má»›i nháº¥t</option>
+                    </select>
+                    <div class="btn-group btn-group-sm" role="group" aria-label="View mode">
+                        <button type="button" class="btn btn-outline-secondary active" title="Dáº¡ng lÆ°á»›i"><i class="bi bi-grid-3x3-gap"></i></button>
+                        <button type="button" class="btn btn-outline-secondary" title="Dáº¡ng danh sÃ¡ch"><i class="bi bi-list-ul"></i></button>
+                    </div>
+                </div>
+            </div>
 
-                        <div class="col">
-                            <div class="card h-100">
-                                <a href="product.html?id=3" class="text-decoration-none text-dark">
-                                    <img src="assets/images/ussr_t_72b3_arena_m.png" class="card-img-top" alt="Sản Phẩm 3">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Sản Phẩm 3</h5>
-                                        <p class="card-text">Mô tả sản phẩm 3.</p>
-                                    </div>
-                                    <div class="card-footer d-flex justify-content-between align-items-center">
-                                        <small class="text-muted">$120</small>
-                                        <button class="btn btn-sm btn-primary">Mua Ngay</button>
-                                    </div>
-                                </a>
-                            </div>
+            <div class="row g-4">
+                <!-- Sidebar lá»c -->
+                <aside class="col-lg-3 col-md-4">
+                    <!-- TÃ¬m kiáº¿m -->
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h6 class="card-title fw-bold mb-3"><i class="bi bi-search me-2"></i>TÃ¬m Kiáº¿m</h6>
+                            <form>
+                                <div class="input-group input-group-sm">
+                                    <input type="text" class="form-control" placeholder="TÃªn sáº£n pháº©m...">
+                                    <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
+                                </div>
+                            </form>
                         </div>
+                    </div>
 
-                        <div class="col">
-                            <div class="card h-100">
-                                <a href="product.html?id=4" class="text-decoration-none text-dark">
-                                    <img src="assets/images/ussr_pantsyr_s1.png" class="card-img-top" alt="Sản Phẩm 4">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Sản Phẩm 4</h5>
-                                        <p class="card-text">Mô tả sản phẩm 4.</p>
-                                    </div>
-                                    <div class="card-footer d-flex justify-content-between align-items-center">
-                                        <small class="text-muted">$80</small>
-                                        <button class="btn btn-sm btn-primary">Mua Ngay</button>
-                                    </div>
-                                </a>
+                    <!-- Lá»c theo danh má»¥c -->
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h6 class="card-title fw-bold mb-3"><i class="bi bi-tags me-2"></i>Danh Má»¥c</h6>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" value="" id="cat1" checked>
+                                <label class="form-check-label d-flex justify-content-between" for="cat1">
+                                    Táº¥t cáº£ <span class="badge bg-secondary rounded-pill">5</span>
+                                </label>
                             </div>
-                        </div>
-
-                        <div class="col">
-                            <div class="card h-100">
-                                <a href="product.html?id=5" class="text-decoration-none text-dark">
-                                    <img src="assets/images/ussr_buk_m3_fcs.png" class="card-img-top" alt="Sản Phẩm 5">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Sản Phẩm 5</h5>
-                                        <p class="card-text">Mô tả sản phẩm 5.</p>
-                                    </div>
-                                    <div class="card-footer d-flex justify-content-between align-items-center">
-                                        <small class="text-muted">$200</small>
-                                        <button class="btn btn-sm btn-primary">Mua Ngay</button>
-                                    </div>
-                                </a>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" value="" id="cat2">
+                                <label class="form-check-label d-flex justify-content-between" for="cat2">
+                                    Danh má»¥c 1 <span class="badge bg-secondary rounded-pill">3</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="cat3">
+                                <label class="form-check-label d-flex justify-content-between" for="cat3">
+                                    Danh má»¥c 2 <span class="badge bg-secondary rounded-pill">2</span>
+                                </label>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <aside class="col-lg-2">
+                    <!-- Lá»c theo giÃ¡ -->
                     <div class="card mb-3">
                         <div class="card-body">
-                            <h5 class="card-title">Theo dõi</h5>
+                            <h6 class="card-title fw-bold mb-3"><i class="bi bi-currency-dollar me-2"></i>Khoáº£ng GiÃ¡</h6>
+                            <div class="mb-2">
+                                <label class="form-label small text-muted">Tá»« $0 â€” $200</label>
+                                <input type="range" class="form-range" min="0" max="200" step="10" value="200">
+                            </div>
+                            <div class="d-flex gap-2">
+                                <input type="number" class="form-control form-control-sm" placeholder="Tá»«" min="0">
+                                <input type="number" class="form-control form-control-sm" placeholder="Äáº¿n" max="200">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Theo dÃµi máº¡ng xÃ£ há»™i -->
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-title fw-bold mb-3"><i class="bi bi-share me-2"></i>Theo DÃµi</h6>
                             <div class="d-grid gap-2">
-                                <a href="#" class="btn btn-outline-primary">Facebook</a>
-                                <a href="#" class="btn btn-outline-secondary">X</a>
-                                <a href="#" class="btn btn-outline-danger">Instagram</a>
-                                <a href="#" class="btn btn-outline-info">LinkedIn</a>
+                                <a href="#" class="btn btn-outline-primary btn-sm"><i class="bi bi-facebook me-2"></i>Facebook</a>
+                                <a href="#" class="btn btn-outline-dark btn-sm"><i class="bi bi-twitter-x me-2"></i>X (Twitter)</a>
+                                <a href="#" class="btn btn-outline-danger btn-sm"><i class="bi bi-instagram me-2"></i>Instagram</a>
+                                <a href="#" class="btn btn-outline-info btn-sm"><i class="bi bi-linkedin me-2"></i>LinkedIn</a>
                             </div>
                         </div>
                     </div>
                 </aside>
+
+                <!-- Danh sÃ¡ch sáº£n pháº©m -->
+                <div class="col-lg-9 col-md-8">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-3 g-4">
+                        <div class="col">
+                            <div class="card product-card h-100">
+                                <a href="product.html?id=1" class="text-decoration-none text-dark">
+                                    <img src="assets/images/ussr_t_90m_2020.png" class="card-img-top product-img" alt="Sáº£n Pháº©m 1">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Sáº£n Pháº©m 1</h5>
+                                        <p class="card-text text-muted small">MÃ´ táº£ sáº£n pháº©m 1.</p>
+                                    </div>
+                                    <div class="card-footer d-flex justify-content-between align-items-center">
+                                        <span class="fw-bold text-primary">$100</span>
+                                        <button class="btn btn-sm btn-primary"><i class="bi bi-cart-plus me-1"></i>Mua Ngay</button>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card product-card h-100">
+                                <a href="product.html?id=2" class="text-decoration-none text-dark">
+                                    <img src="assets/images/ussr_t_80bvm.png" class="card-img-top product-img" alt="Sáº£n Pháº©m 2">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Sáº£n Pháº©m 2</h5>
+                                        <p class="card-text text-muted small">MÃ´ táº£ sáº£n pháº©m 2.</p>
+                                    </div>
+                                    <div class="card-footer d-flex justify-content-between align-items-center">
+                                        <span class="fw-bold text-primary">$150</span>
+                                        <button class="btn btn-sm btn-primary"><i class="bi bi-cart-plus me-1"></i>Mua Ngay</button>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card product-card h-100">
+                                <a href="product.html?id=3" class="text-decoration-none text-dark">
+                                    <img src="assets/images/ussr_t_72b3_arena_m.png" class="card-img-top product-img" alt="Sáº£n Pháº©m 3">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Sáº£n Pháº©m 3</h5>
+                                        <p class="card-text text-muted small">MÃ´ táº£ sáº£n pháº©m 3.</p>
+                                    </div>
+                                    <div class="card-footer d-flex justify-content-between align-items-center">
+                                        <span class="fw-bold text-primary">$120</span>
+                                        <button class="btn btn-sm btn-primary"><i class="bi bi-cart-plus me-1"></i>Mua Ngay</button>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card product-card h-100">
+                                <a href="product.html?id=4" class="text-decoration-none text-dark">
+                                    <img src="assets/images/ussr_pantsyr_s1.png" class="card-img-top product-img" alt="Sáº£n Pháº©m 4">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Sáº£n Pháº©m 4</h5>
+                                        <p class="card-text text-muted small">MÃ´ táº£ sáº£n pháº©m 4.</p>
+                                    </div>
+                                    <div class="card-footer d-flex justify-content-between align-items-center">
+                                        <span class="fw-bold text-primary">$80</span>
+                                        <button class="btn btn-sm btn-primary"><i class="bi bi-cart-plus me-1"></i>Mua Ngay</button>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="card product-card h-100">
+                                <a href="product.html?id=5" class="text-decoration-none text-dark">
+                                    <img src="assets/images/ussr_buk_m3_fcs.png" class="card-img-top product-img" alt="Sáº£n Pháº©m 5">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Sáº£n Pháº©m 5</h5>
+                                        <p class="card-text text-muted small">MÃ´ táº£ sáº£n pháº©m 5.</p>
+                                    </div>
+                                    <div class="card-footer d-flex justify-content-between align-items-center">
+                                        <span class="fw-bold text-primary">$200</span>
+                                        <button class="btn btn-sm btn-primary"><i class="bi bi-cart-plus me-1"></i>Mua Ngay</button>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PhÃ¢n trang -->
+                    <nav class="mt-5" aria-label="PhÃ¢n trang sáº£n pháº©m">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" aria-label="Previous"><i class="bi bi-chevron-left"></i></a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next"><i class="bi bi-chevron-right"></i></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </main>
 
-        <footer class="bg-secondary py-3 mb-3 text-white border-top">
+        <!-- ========== FOOTER ========== -->
+        <footer class="bg-dark text-white pt-5 pb-3">
             <div class="container">
-                <div class="row">
-                    <div class="col-6 col-md-2 mb-3"> 
-                        <h5>Section</h5> 
+                <div class="row g-4">
+                    <div class="col-12 col-md-4 col-lg-3">
+                        <h5 class="fw-bold mb-3"><i class="bi bi-shop me-2 text-primary"></i>GalaxyVN Shop</h5>
+                        <p class="text-secondary small">Cá»­a hÃ ng trá»±c tuyáº¿n uy tÃ­n, chuyÃªn cung cáº¥p cÃ¡c sáº£n pháº©m cháº¥t lÆ°á»£ng vá»›i giÃ¡ tá»‘t nháº¥t thá»‹ trÆ°á»ng.</p>
+                        <div class="d-flex gap-2 mt-3">
+                            <a href="#" class="btn btn-outline-secondary btn-sm" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="btn btn-outline-secondary btn-sm" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="btn btn-outline-secondary btn-sm" aria-label="Twitter/X"><i class="bi bi-twitter-x"></i></a>
+                            <a href="#" class="btn btn-outline-secondary btn-sm" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-2">
+                        <h6 class="fw-semibold mb-3 text-uppercase text-secondary footer-heading">Cá»­a HÃ ng</h6>
                         <ul class="nav flex-column">
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li> 
-                        </ul> 
-                    </div> 
-                    <div class="col-6 col-md-2 mb-3"> 
-                        <h5>Section</h5> 
-                        <ul class="nav flex-column"> 
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li> 
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li> 
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li> 
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li> 
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li> 
-                        </ul> 
-                    </div> 
-                    <div class="col-6 col-md-2 mb-3"> 
-                        <h5>Section</h5> 
-                        <ul class="nav flex-column"> 
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li> 
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li> 
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li> 
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li> 
-                            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li> 
-                        </ul> 
-                    </div> 
-                    <div class="col-md-5 offset-md-1 mb-3"> 
-                        <form> 
-                            <h5>Subscribe to our newsletter</h5> 
-                            <p>Monthly digest of what's new and exciting from us.</p> 
-                            <div class="d-flex flex-column flex-sm-row w-100 gap-2"> 
-                                <label for="newsletter1" class="visually-hidden">Email address</label> 
-                                <input id="newsletter1" type="email" class="form-control" placeholder="Email address"> 
-                                <button class="btn btn-primary" type="button">Subscribe</button> 
-                            </div> 
-                        </form> 
-                    </div> 
-                </div> 
-                <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top"> 
-                    <p>© 2026 GalaxyVN, Inc. All rights reserved.</p> 
-                    <ul class="list-unstyled d-flex"> 
-                        <li class="ms-3"><a class="link-body-emphasis" href="#" aria-label="Instagram"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li> 
-                        <li class="ms-3"><a class="link-body-emphasis" href="#" aria-label="Facebook"><svg class="bi" width="24" height="24" aria-hidden="true"><use xlink:href="#facebook"></use></svg></a></li> 
-                    </ul> 
+                            <li class="nav-item mb-1"><a href="index.html" class="nav-link p-0 text-secondary footer-link">Trang Chá»§</a></li>
+                            <li class="nav-item mb-1"><a href="items.html" class="nav-link p-0 text-secondary footer-link">Sáº£n Pháº©m</a></li>
+                            <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-secondary footer-link">Æ¯u ÄÃ£i</a></li>
+                            <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-secondary footer-link">Má»›i Nháº¥t</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md-2">
+                        <h6 class="fw-semibold mb-3 text-uppercase text-secondary footer-heading">Há»— Trá»£</h6>
+                        <ul class="nav flex-column">
+                            <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-secondary footer-link">LiÃªn Há»‡</a></li>
+                            <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-secondary footer-link">FAQ</a></li>
+                            <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-secondary footer-link">Äá»•i &amp; Tráº£</a></li>
+                            <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-secondary footer-link">Váº­n Chuyá»ƒn</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-5">
+                        <h6 class="fw-semibold mb-3 text-uppercase text-secondary footer-heading">ÄÄƒng KÃ½ Nháº­n Tin</h6>
+                        <p class="text-secondary small mb-2">Nháº­n thÃ´ng tin Æ°u Ä‘Ã£i vÃ  sáº£n pháº©m má»›i nháº¥t má»—i tuáº§n.</p>
+                        <form class="d-flex gap-2">
+                            <label for="newsletterEmail" class="visually-hidden">Email</label>
+                            <input id="newsletterEmail" type="email" class="form-control form-control-sm" placeholder="Email cá»§a báº¡n...">
+                            <button class="btn btn-primary btn-sm text-nowrap" type="button">ÄÄƒng KÃ½</button>
+                        </form>
+                    </div>
                 </div>
-            </div> 
-        </footer> 
-    </div>
+                <hr class="border-secondary mt-4">
+                <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2">
+                    <p class="text-secondary small mb-0">Â© 2026 GalaxyVN, Inc. All rights reserved.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-secondary small text-decoration-none">ChÃ­nh sÃ¡ch báº£o máº­t</a>
+                        <a href="#" class="text-secondary small text-decoration-none">Äiá»u khoáº£n</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
     </body>
 </html>
