@@ -1,0 +1,104 @@
+@model WebBanHang.Models.Product
+
+@{
+    ViewData["Title"] = "Sửa sản phẩm";
+}
+
+<div class="row justify-content-center">
+    <div class="col-xl-8">
+        <div class="wb-section-card p-4">
+            <h2 class="h4 fw-bold mb-3">Cập nhật sản phẩm</h2>
+
+            <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                <input type="hidden" asp-for="Id" />
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label asp-for="Name" class="form-label fw-semibold">Tên sản phẩm</label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger small"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="Price" class="form-label fw-semibold">Giá</label>
+                        <input asp-for="Price" class="form-control" />
+                        <span asp-validation-for="Price" class="text-danger small"></span>
+                    </div>
+                    <div class="col-12">
+                        <label asp-for="Description" class="form-label fw-semibold">Mô tả</label>
+                        <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <label asp-for="CategoryId" class="form-label fw-semibold">Danh mục</label>
+                        <select asp-for="CategoryId" class="form-select" asp-items="ViewBag.Categories">
+                            <option value="">-- Chọn danh mục --</option>
+                        </select>
+                        <span asp-validation-for="CategoryId" class="text-danger small"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-semibold">Thay ảnh chính</label>
+                        <input type="file" name="imageFile" class="form-control" accept="image/*" />
+                    </div>
+                </div>
+
+                @* === Ảnh chính hiện tại === *@
+                <div class="card mt-4 border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="fw-bold mb-3">Ảnh chính</h5>
+                        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                        {
+                            <div class="d-inline-block text-center p-2 border rounded bg-white">
+                                <img src="@Model.ImageUrl" alt="Ảnh chính" class="img-fluid rounded mb-2" style="height: 160px; object-fit: cover;" />
+                                <div class="form-check text-start">
+                                    <input class="form-check-input" type="checkbox" name="removeMainImage" value="true" id="removeMainImage" />
+                                    <label class="form-check-label text-danger small" for="removeMainImage">Xóa ảnh chính này</label>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <p class="text-muted mb-0"><i class="bi bi-info-circle"></i> Chưa có ảnh chính.</p>
+                        }
+                    </div>
+                </div>
+
+                @* === Ảnh bổ sung === *@
+                <div class="card mt-4 border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="fw-bold mb-3">Ảnh bổ sung</h5>
+                        <input type="file" name="imageFiles" class="form-control mb-4" multiple accept="image/*" />
+
+                        @if (Model.Images != null && Model.Images.Count > 0)
+                        {
+                            <div class="row g-3">
+                                @foreach (var img in Model.Images)
+                                {
+                                    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                        <div class="border rounded p-2 text-center bg-white h-100 d-flex flex-column">
+                                            <img src="@img.Url" alt="Ảnh bổ sung" class="img-fluid rounded mb-2 flex-grow-1" style="object-fit: cover; max-height: 120px;" />
+                                            <div class="form-check text-start mt-auto">
+                                                <input class="form-check-input" type="checkbox" name="removedImageIds" value="@img.Id" id="remove-img-@img.Id" />
+                                                <label class="form-check-label text-danger small" for="remove-img-@img.Id">Xóa ảnh</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        }
+                        else
+                        {
+                            <p class="text-muted mb-0"><i class="bi bi-info-circle"></i> Chưa có ảnh bổ sung.</p>
+                        }
+                    </div>
+                </div>
+
+                <div class="d-flex gap-2 mt-4">
+                    <button type="submit" class="btn wb-btn-primary text-white">Lưu thay đổi</button>
+                    <a asp-action="Index" class="btn btn-outline-secondary">Quay lại</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

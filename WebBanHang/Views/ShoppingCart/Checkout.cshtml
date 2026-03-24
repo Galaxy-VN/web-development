@@ -1,0 +1,37 @@
+@model WebBanHang.Models.Order
+
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="wb-section-card p-4 p-md-5">
+            <h1 class="h3 fw-bold mb-1">Thông tin thanh toán</h1>
+            <p class="text-muted mb-4">Hoàn tất các thông tin giao hàng để xác nhận đơn của bạn.</p>
+
+            <form asp-action="Checkout" method="post">
+                <div class="mb-3">
+                    <label asp-for="ShippingAddress" class="form-label fw-semibold">Địa chỉ giao hàng</label>
+                    <input asp-for="ShippingAddress" class="form-control" required placeholder="Nhập địa chỉ của bạn" />
+                    <span asp-validation-for="ShippingAddress" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="Notes" class="form-label fw-semibold">Ghi chú thêm</label>
+                    <textarea asp-for="Notes" class="form-control" rows="4" placeholder="Ví dụ: giao giờ hành chính"></textarea>
+                    <span asp-validation-for="Notes" class="text-danger small"></span>
+                </div>
+
+                <div class="d-flex flex-wrap gap-2">
+                    <button type="submit" class="btn wb-btn-primary text-white px-4">Xác nhận đặt hàng</button>
+                    <a asp-action="Index" class="btn btn-outline-secondary">Quay lại giỏ hàng</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

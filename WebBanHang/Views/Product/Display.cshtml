@@ -1,0 +1,69 @@
+﻿@model WebBanHang.Models.Product
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm border-0">
+        <div class="row g-0">
+            <div class="col-md-5 bg-light d-flex justify-content-center align-items-center p-4">
+                @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                {
+                    <img src="@Model.ImageUrl" alt="@Model.Name" class="img-fluid rounded shadow-sm" style="max-height: 400px; object-fit: contain;" />
+                }
+                else
+                {
+                    <div class="text-muted text-center py-5">
+                        <i class="bi bi-image" style="font-size: 4rem;"></i>
+                        <p class="mt-2 text-secondary">Chưa có hình ảnh</p>
+                    </div>
+                }
+            </div>
+            <div class="col-md-7">
+                <div class="card-body p-4 p-md-5">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <h2 class="card-title fw-bold mb-0">@Model.Name</h2>
+                        <span class="badge bg-primary text-wrap px-3 py-2 fs-6">
+                            @(Model.Category?.Name ?? "Chưa phân loại")
+                        </span>
+                    </div>
+
+                    <h3 class="text-success fw-bold mb-4">@Model.Price.ToString("C")</h3>
+                    
+                    <h5 class="fw-semibold text-secondary mb-2">Mô tả</h5>
+                    <p class="card-text text-muted mb-4" style="line-height: 1.6;">
+                        @Model.Description
+                    </p>
+
+                    @if (Model.Images != null && Model.Images.Any())
+                    {
+                        <div class="mb-4">
+                            <h5 class="fw-semibold text-secondary mb-3">Hình ảnh bổ sung</h5>
+                            <div class="d-flex flex-wrap gap-2">
+                                @foreach (var img in Model.Images)
+                                {
+                                    <img src="@img.Url" alt="Ảnh bổ sung" class="img-thumbnail" style="width: 100px; height: 100px; object-fit: cover;" />
+                                }
+                            </div>
+                        </div>
+                    }
+
+                    <hr class="my-4" />
+
+                    <div class="d-flex gap-2">
+                        <form asp-controller="ShoppingCart" asp-action="AddToCart" method="post" class="d-inline">
+                            <input type="hidden" name="productId" value="@Model.Id" />
+                            <div class="input-group mb-3" style="max-width: 200px;">
+                                <span class="input-group-text">SL</span>
+                                <input type="number" name="quantity" class="form-control" value="1" min="1" max="99" />
+                            </div>
+                            <button type="submit" class="btn btn-primary px-4"><i class="bi bi-cart-plus"></i> Thêm vào giỏ</button>
+                        </form>
+                        <a asp-action="Index" class="btn btn-outline-secondary px-4"><i class="bi bi-arrow-left"></i> Quay lại Store</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

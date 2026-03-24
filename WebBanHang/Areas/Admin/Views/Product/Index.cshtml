@@ -1,0 +1,68 @@
+@model IEnumerable<WebBanHang.Models.Product>
+
+@{
+    ViewData["Title"] = "Quản lý sản phẩm";
+}
+
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+    <div>
+        <h2 class="h3 fw-bold mb-1">Danh sách sản phẩm</h2>
+        <p class="text-muted mb-0">Theo dõi và cập nhật danh mục sản phẩm đang hiển thị trên cửa hàng.</p>
+    </div>
+    <a asp-action="Add" class="btn wb-btn-primary text-white"><i class="bi bi-plus-circle me-1"></i> Thêm sản phẩm</a>
+</div>
+
+<div class="wb-section-card p-3">
+    @if (Model.Any())
+    {
+        <div class="table-responsive">
+            <table class="table wb-data-table mb-0 align-middle">
+                <thead>
+                    <tr>
+                        <th>Sản phẩm</th>
+                        <th>Giá</th>
+                        <th>Mô tả</th>
+                        <th class="text-end">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center gap-2">
+                                    @if (!string.IsNullOrEmpty(item.ImageUrl))
+                                    {
+                                        <img src="@item.ImageUrl" alt="@item.Name" width="56" class="rounded border" />
+                                    }
+                                    else
+                                    {
+                                        <div class="rounded border d-flex align-items-center justify-content-center" style="width:56px;height:56px;">
+                                            <i class="bi bi-image text-muted"></i>
+                                        </div>
+                                    }
+                                    <div>
+                                        <div class="fw-semibold">@item.Name</div>
+                                        <div class="small text-muted">ID: #@item.Id</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="fw-semibold">@item.Price.ToString("C")</td>
+                            <td class="text-muted">@item.Description</td>
+                            <td class="text-end">
+                                <div class="d-inline-flex gap-2">
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-dark btn-sm">Sửa</a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm">Xóa</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info mb-0">Chưa có sản phẩm nào trong hệ thống.</div>
+    }
+</div>

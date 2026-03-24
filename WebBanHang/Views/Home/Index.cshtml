@@ -1,0 +1,99 @@
+@model IEnumerable<WebBanHang.Models.Product>
+@{
+    ViewData["Title"] = "Trang chủ";
+}
+
+<section class="wb-page-hero mb-4">
+    <div class="row align-items-center g-4">
+        <div class="col-lg-7">
+            <p class="text-uppercase small fw-semibold mb-2">WebBanHang Collection 2026</p>
+            <h1 class="display-6 fw-bold mb-3">Mua sắm nhanh, chọn sản phẩm chuẩn, thanh toán gọn</h1>
+            <p class="mb-4">Khám phá danh mục sản phẩm nổi bật, ưu đãi theo mùa và trải nghiệm đặt hàng đơn giản chỉ trong vài bước.</p>
+            <div class="d-flex flex-wrap gap-2">
+                <a asp-controller="Product" asp-action="Index" class="btn wb-btn-primary text-white px-4">Mua ngay</a>
+                <a asp-controller="Category" asp-action="Index" class="btn btn-outline-dark px-4">Xem danh mục</a>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="wb-section-card p-4">
+                <h2 class="h5 fw-bold mb-3">Điểm mạnh cửa hàng</h2>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Sản phẩm rõ thông tin và hình ảnh</li>
+                    <li class="mb-2"><i class="bi bi-check2-circle text-success me-2"></i>Giỏ hàng trực quan, dễ thao tác</li>
+                    <li><i class="bi bi-check2-circle text-success me-2"></i>Quản trị đơn hàng tập trung cho admin</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+@if (Model.Any())
+{
+    <section class="mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h2 class="h4 fw-bold mb-1">Sản phẩm mới nhất</h2>
+                <p class="text-muted mb-0">Khám phá các sản phẩm vừa được cập nhật</p>
+            </div>
+            <a asp-controller="Product" asp-action="Index" class="btn btn-outline-primary px-4">
+                Xem tất cả <i class="bi bi-arrow-right"></i>
+            </a>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+            @foreach (var product in Model)
+            {
+                <div class="col">
+                    <div class="card h-100 shadow-sm border-0 product-card">
+                        <a asp-controller="Product" asp-action="Display" asp-route-id="@product.Id" class="text-decoration-none text-dark">
+                            @if (!string.IsNullOrEmpty(product.ImageUrl))
+                            {
+                                <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name" style="height: 200px; object-fit: cover;">
+                            }
+                            else
+                            {
+                                <div class="bg-light d-flex justify-content-center align-items-center" style="height: 200px;">
+                                    <i class="bi bi-image text-muted" style="font-size: 3rem;"></i>
+                                </div>
+                            }
+                            <div class="card-body">
+                                <h5 class="card-title fw-semibold text-truncate" title="@product.Name">@product.Name</h5>
+                                <p class="card-text text-success fw-bold fs-5 mb-2">@product.Price.ToString("C")</p>
+                                <p class="card-text text-muted small text-truncate">@product.Description</p>
+                            </div>
+                        </a>
+                        <div class="card-footer bg-white border-top-0 pt-0 pb-3">
+                            <form asp-controller="ShoppingCart" asp-action="AddToCart" method="post">
+                                <input type="hidden" name="productId" value="@product.Id" />
+                                <input type="hidden" name="quantity" value="1" />
+                                <button type="submit" class="btn btn-outline-primary w-100 fw-semibold">
+                                    <i class="bi bi-cart-plus"></i> Thêm vào giỏ
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+}
+
+<section class="row g-3">
+    <div class="col-md-4">
+        <div class="wb-section-card p-4 h-100">
+            <h3 class="h6 fw-bold">Ưu đãi tuần này</h3>
+            <p class="text-muted mb-0">Giảm đến 20% cho nhóm sản phẩm mới cập nhật.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="wb-section-card p-4 h-100">
+            <h3 class="h6 fw-bold">Giao diện tối ưu</h3>
+            <p class="text-muted mb-0">Trải nghiệm mượt trên cả điện thoại, tablet và desktop.</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="wb-section-card p-4 h-100">
+            <h3 class="h6 fw-bold">Thanh toán an toàn</h3>
+            <p class="text-muted mb-0">Luồng checkout rõ ràng, giảm sai sót khi đặt hàng.</p>
+        </div>
+    </div>
+</section>

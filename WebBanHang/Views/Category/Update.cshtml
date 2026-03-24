@@ -1,0 +1,36 @@
+@model WebBanHang.Models.Category
+@using Microsoft.AspNetCore.Mvc.Rendering
+@{
+	ViewData["Title"] = "Cập nhật danh mục";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-7">
+        <div class="wb-section-card p-4">
+            <h1 class="h4 fw-bold mb-1">Cập nhật danh mục</h1>
+            <p class="text-muted mb-4">Điều chỉnh tên danh mục để hiển thị rõ ràng trên storefront.</p>
+
+            <form asp-action="Update" method="post">
+                <input type="hidden" asp-for="Id" />
+
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label fw-semibold">Tên danh mục</label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">Danh mục hiện có (tham khảo)</label>
+                    <select asp-items="ViewBag.Categories" class="form-select" disabled>
+                        <option value="">-- Chọn để xem --</option>
+                    </select>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn wb-btn-primary text-white px-4">Cập nhật</button>
+                    <a asp-action="Index" class="btn btn-outline-secondary">Quay lại danh sách</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

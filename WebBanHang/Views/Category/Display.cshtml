@@ -1,0 +1,20 @@
+@model WebBanHang.Models.Category
+@{
+	ViewData["Title"] = "Chi tiết danh mục";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-7">
+        <div class="wb-section-card p-4">
+            <h1 class="h4 fw-bold mb-3">Chi tiết danh mục</h1>
+            <div class="bg-light rounded p-3 mb-4">
+                <div class="small text-muted mb-1">Tên danh mục</div>
+                <div class="fw-semibold">@Model.Name</div>
+            </div>
+            <div class="d-flex gap-2">
+                <a asp-action="Update" asp-route-id="@Model?.Id" class="btn btn-outline-dark">Sửa</a>
+                <a asp-action="Index" class="btn btn-outline-secondary">Quay lại danh sách</a>
+            </div>
+        </div>
+    </div>
+</div>

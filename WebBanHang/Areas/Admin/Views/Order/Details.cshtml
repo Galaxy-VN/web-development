@@ -1,0 +1,38 @@
+@model WebBanHang.Models.Order
+
+@{
+    ViewData["Title"] = "Chi tiết đơn hàng";
+}
+
+<div class="wb-section-card p-4 mt-2">
+    <h2 class="h4 fw-bold mb-3">Thông tin chi tiết đơn hàng #@Model.Id</h2>
+
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="bg-light rounded p-3 h-100">
+                <div class="small text-muted">Ngày đặt hàng</div>
+                <div class="fw-semibold">@Model.OrderDate</div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="bg-light rounded p-3 h-100">
+                <div class="small text-muted">Tổng số tiền</div>
+                <div class="fw-bold text-danger">@Model.TotalPrice.ToString("C")</div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="bg-light rounded p-3">
+                <div class="small text-muted">Địa chỉ giao hàng</div>
+                <div class="fw-semibold">@Model.ShippingAddress</div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="bg-light rounded p-3">
+                <div class="small text-muted">Ghi chú</div>
+                <div>@(string.IsNullOrWhiteSpace(Model.Notes) ? "Không có ghi chú" : Model.Notes)</div>
+            </div>
+        </div>
+    </div>
+
+    <a asp-action="Index" class="btn btn-outline-secondary mt-4">Quay lại danh sách</a>
+</div>

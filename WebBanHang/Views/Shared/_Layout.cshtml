@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebBanHang</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebBanHang.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light wb-navbar mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="bi bi-bag-heart-fill me-1"></i> WebBanHang Shop
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between align-items-lg-center">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Trang chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Product" asp-action="Index">Store</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="ShoppingCart" asp-action="Index">
+                                <i class="bi bi-cart3 me-1"></i>Giỏ hàng
+                            </a>
+                        </li>
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container pb-4">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="wb-footer py-4 text-muted">
+        <div class="container">
+            <div class="row g-3 align-items-start">
+                <div class="col-md-4">
+                    <div class="footer-heading">WebBanHang</div>
+                    <p class="small mb-0">Nền tảng mua sắm trực tuyến đơn giản, nhanh, rõ ràng cho khách hàng và quản trị viên.</p>
+                </div>
+                <div class="col-6 col-md-2">
+                    <div class="footer-heading">Khám phá</div>
+                    <a class="footer-link d-block small mb-1" asp-controller="Product" asp-action="Index">Sản phẩm</a>
+                    <a class="footer-link d-block small mb-1" asp-controller="Category" asp-action="Index">Danh mục</a>
+                    <a class="footer-link d-block small" asp-controller="ShoppingCart" asp-action="Index">Giỏ hàng</a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="footer-heading">Hỗ trợ</div>
+                    <a class="footer-link d-block small mb-1" asp-controller="Home" asp-action="Privacy">Chính sách</a>
+                    <span class="small d-block">Hotline: 1900 1234</span>
+                    <span class="small d-block">Email: support@webbanhang.local</span>
+                </div>
+                <div class="col-md-3 text-md-end">
+                    <div class="footer-heading">Kết nối</div>
+                    <div class="d-flex gap-2 justify-content-md-end">
+                        <span class="badge text-bg-light"><i class="bi bi-facebook"></i></span>
+                        <span class="badge text-bg-light"><i class="bi bi-instagram"></i></span>
+                        <span class="badge text-bg-light"><i class="bi bi-youtube"></i></span>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-3" />
+            <div class="small">&copy; 2026 WebBanHang. All rights reserved.</div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

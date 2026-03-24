@@ -1,0 +1,30 @@
+@model WebBanHang.Models.Product
+
+@{
+    ViewData["Title"] = "Xóa sản phẩm";
+}
+
+<div class="row justify-content-center mt-4">
+    <div class="col-xl-7">
+        <div class="card border-danger shadow-sm">
+            <div class="card-header bg-danger text-white">
+                <h2 class="h5 mb-0">Xác nhận xóa sản phẩm</h2>
+            </div>
+            <div class="card-body p-4">
+                <p class="mb-3">Bạn có chắc chắn muốn xóa sản phẩm <strong>@Model.Name</strong>?</p>
+                <div class="bg-light rounded p-3 mb-4">
+                    <div class="small text-muted">Giá</div>
+                    <div class="fw-semibold mb-2">@Model.Price.ToString("C")</div>
+                    <div class="small text-muted">Mô tả</div>
+                    <div>@Model.Description</div>
+                </div>
+
+                <form asp-action="Delete" class="d-flex gap-2">
+                    <input type="hidden" asp-for="Id" />
+                    <button type="submit" class="btn btn-danger">Xóa sản phẩm</button>
+                    <a asp-action="Index" class="btn btn-outline-secondary">Hủy bỏ</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

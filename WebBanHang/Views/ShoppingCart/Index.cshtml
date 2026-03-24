@@ -1,0 +1,111 @@
+@model List<WebBanHang.Models.CartItem>
+
+@{
+    ViewData["Title"] = "Giỏ hàng";
+}
+
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+    <div>
+        <h1 class="h3 fw-bold mb-1">Giỏ hàng của bạn</h1>
+        <p class="text-muted mb-0">Kiểm tra nhanh sản phẩm trước khi tiến hành thanh toán.</p>
+    </div>
+    <a asp-controller="Product" asp-action="Index" class="btn btn-outline-dark">Tiếp tục mua sắm</a>
+</div>
+
+@if (Model == null || !Model.Any())
+{
+    <div class="wb-section-card p-4">
+        <div class="alert alert-info mb-0">
+            Giỏ hàng của bạn đang trống.
+            <a asp-controller="Home" asp-action="Index" class="alert-link">Bắt đầu mua sắm ngay</a>
+        </div>
+    </div>
+}
+else
+{
+    <div class="row g-3">
+        <div class="col-lg-8">
+            <div class="wb-section-card p-3">
+                <div class="table-responsive d-none d-md-block">
+                    <table class="table wb-data-table mb-0">
+                        <thead>
+                            <tr>
+                                <th>Hình ảnh</th>
+                                <th>Sản phẩm</th>
+                                <th>Giá</th>
+                                <th>Số lượng</th>
+                                <th>Tạm tính</th>
+                                <th class="text-end">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @if (!string.IsNullOrEmpty(item.ImageUrl))
+                                        {
+                                            <img src="@item.ImageUrl" alt="@item.Name" width="72" class="img-thumbnail rounded" />
+                                        }
+                                        else
+                                        {
+                                            <div class="bg-light rounded d-flex align-items-center justify-content-center" style="width:72px;height:72px;">
+                                                <i class="bi bi-image text-muted"></i>
+                                            </div>
+                                        }
+                                    </td>
+                                    <td class="fw-semibold">@item.Name</td>
+                                    <td>@item.Price.ToString("C")</td>
+                                    <td>@item.Quantity</td>
+                                    <td class="fw-semibold">@((item.Price * item.Quantity).ToString("C"))</td>
+                                    <td class="text-end">
+                                        <a asp-action="RemoveFromCart" asp-route-productId="@item.ProductId" class="btn btn-outline-danger btn-sm">Xóa</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="d-md-none">
+                    @foreach (var item in Model)
+                    {
+                        <div class="wb-mobile-card">
+                            <div class="d-flex gap-2">
+                                @if (!string.IsNullOrEmpty(item.ImageUrl))
+                                {
+                                    <img src="@item.ImageUrl" alt="@item.Name" width="64" class="img-thumbnail rounded" />
+                                }
+                                <div>
+                                    <div class="fw-semibold">@item.Name</div>
+                                    <div class="small text-muted">Giá: @item.Price.ToString("C")</div>
+                                    <div class="small text-muted">Số lượng: @item.Quantity</div>
+                                    <div class="small fw-semibold">Tạm tính: @((item.Price * item.Quantity).ToString("C"))</div>
+                                </div>
+                            </div>
+                            <a asp-action="RemoveFromCart" asp-route-productId="@item.ProductId" class="btn btn-sm btn-outline-danger mt-2">Xóa</a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="wb-section-card p-4">
+                <h2 class="h5 fw-bold mb-3">Tóm tắt đơn hàng</h2>
+                <div class="d-flex justify-content-between mb-2">
+                    <span>Tổng số dòng sản phẩm</span>
+                    <span class="fw-semibold">@Model.Count</span>
+                </div>
+                <div class="d-flex justify-content-between mb-3">
+                    <span>Tổng tiền</span>
+                    <span class="wb-price">@Model.Sum(x => x.Price * x.Quantity).ToString("C")</span>
+                </div>
+                <div class="d-grid gap-2">
+                    <a asp-action="Checkout" class="btn wb-btn-primary text-white">Tiến hành thanh toán</a>
+                    <a asp-action="ClearCart" class="btn btn-outline-warning">Xóa toàn bộ giỏ hàng</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}

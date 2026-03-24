@@ -1,0 +1,49 @@
+@model IEnumerable<WebBanHang.Models.Category>
+@{
+    ViewData["Title"] = "Danh mục";
+}
+
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+    <div>
+        <h1 class="h3 fw-bold mb-1">Danh mục sản phẩm</h1>
+        <p class="text-muted mb-0">Quản lý nhóm sản phẩm để khách hàng lọc nhanh hơn.</p>
+    </div>
+    <a asp-action="Add" class="btn wb-btn-primary text-white">
+        <i class="bi bi-plus-circle me-1"></i> Tạo danh mục
+    </a>
+</div>
+
+<div class="wb-section-card p-3 p-md-4">
+    @if (Model.Any())
+    {
+        <div class="table-responsive">
+            <table class="table wb-data-table align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th>Tên danh mục</th>
+                        <th class="text-end">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td class="text-end">
+                                <div class="d-inline-flex gap-2">
+                                    <a asp-action="Display" asp-route-id="@item.Id" class="btn btn-outline-primary btn-sm">Chi tiết</a>
+                                    <a asp-action="Update" asp-route-id="@item.Id" class="btn btn-outline-dark btn-sm">Sửa</a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm">Xóa</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info mb-0">Chưa có danh mục nào. Hãy tạo danh mục đầu tiên.</div>
+    }
+</div>
